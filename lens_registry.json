@@ -170,11 +170,11 @@
     "reprints": 0
   },
   "LE018": {
-    "assigned_at": null,
-    "assigned_by": null,
+    "assigned_at": "2026-07-14T12:35:45",
+    "assigned_by": "Nathan",
     "attachment": false,
-    "location": null,
-    "model": null,
+    "location": "G3 Overview",
+    "model": "86-570",
     "note": null,
     "printed_at": "2026-07-13T07:28:28",
     "reprints": 0
