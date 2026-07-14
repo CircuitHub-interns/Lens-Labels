@@ -1,0 +1,335 @@
+{
+  "LE001": {
+    "assigned_at": "2026-07-06T09:08:56",
+    "assigned_by": "Jonathan",
+    "location": "SM1 EE",
+    "model": "33-300",
+    "note": null,
+    "printed_at": "2026-07-06T09:08:56",
+    "reprints": 0
+  },
+  "LE002": {
+    "assigned_at": "2026-07-13T07:24:33",
+    "assigned_by": null,
+    "location": "SM4 QR",
+    "model": "59-872",
+    "note": null,
+    "printed_at": "2026-07-13T07:23:52",
+    "reprints": 0
+  },
+  "LE003": {
+    "assigned_at": "2026-07-13T07:30:27",
+    "assigned_by": null,
+    "location": "SM3 EE",
+    "model": "33-300",
+    "note": null,
+    "printed_at": "2026-07-13T07:28:28",
+    "reprints": 0
+  },
+  "LE004": {
+    "assigned_at": "2026-07-13T07:30:40",
+    "assigned_by": null,
+    "location": "SM3 Inside 2",
+    "model": "33-300",
+    "note": null,
+    "printed_at": "2026-07-06T09:04:27",
+    "reprints": 1
+  },
+  "LE005": {
+    "assigned_at": "2026-07-13T07:30:51",
+    "assigned_by": null,
+    "location": "SM4 EE",
+    "model": "33-300",
+    "note": null,
+    "printed_at": "2026-07-06T09:04:27",
+    "reprints": 1
+  },
+  "LE006": {
+    "assigned_at": "2026-07-13T07:31:06",
+    "assigned_by": null,
+    "location": "Tiles - Beyond SM4",
+    "model": "33-300",
+    "note": null,
+    "printed_at": "2026-07-13T07:28:28",
+    "reprints": 0
+  },
+  "LE007": {
+    "assigned_at": "2026-07-13T07:31:36",
+    "assigned_by": null,
+    "location": "Flipper Pusher Close Up",
+    "model": "33-301",
+    "note": null,
+    "printed_at": "2026-07-13T07:28:28",
+    "reprints": 0
+  },
+  "LE008": {
+    "assigned_at": "2026-07-13T07:32:03",
+    "assigned_by": null,
+    "location": "Tiles - Behind G1",
+    "model": "33-301",
+    "note": null,
+    "printed_at": "2026-07-13T07:28:28",
+    "reprints": 0
+  },
+  "LE009": {
+    "assigned_at": "2026-07-13T07:32:25",
+    "assigned_by": null,
+    "location": "SM4 Declamper Overhead",
+    "model": "33-301",
+    "note": null,
+    "printed_at": "2026-07-13T07:28:28",
+    "reprints": 0
+  },
+  "LE010": {
+    "assigned_at": "2026-07-13T07:32:37",
+    "assigned_by": null,
+    "location": "Idle",
+    "model": "33-301",
+    "note": null,
+    "printed_at": "2026-07-13T07:28:28",
+    "reprints": 0
+  },
+  "LE011": {
+    "assigned_at": "2026-07-13T07:33:33",
+    "assigned_by": null,
+    "location": "JP TU",
+    "model": "67-709",
+    "note": null,
+    "printed_at": "2026-07-13T07:28:28",
+    "reprints": 0
+  },
+  "LE012": {
+    "assigned_at": "2026-07-13T07:33:44",
+    "assigned_by": null,
+    "location": "G1 Overview",
+    "model": "67-709",
+    "note": null,
+    "printed_at": "2026-07-13T07:28:28",
+    "reprints": 0
+  },
+  "LE013": {
+    "assigned_at": "2026-07-13T07:33:56",
+    "assigned_by": null,
+    "location": "Oven TU",
+    "model": "67-709",
+    "note": null,
+    "printed_at": "2026-07-13T07:28:28",
+    "reprints": 0
+  },
+  "LE014": {
+    "assigned_at": "2026-07-13T07:34:10",
+    "assigned_by": null,
+    "location": "SM3 Declamper Overhead",
+    "model": "67-709",
+    "note": null,
+    "printed_at": "2026-07-13T07:28:28",
+    "reprints": 0
+  },
+  "LE015": {
+    "assigned_at": "2026-07-13T07:34:56",
+    "assigned_by": null,
+    "location": "G3 Nozzle",
+    "model": "86-570",
+    "note": null,
+    "printed_at": "2026-07-13T07:28:28",
+    "reprints": 0
+  },
+  "LE016": {
+    "assigned_at": "2026-07-13T07:35:09",
+    "assigned_by": null,
+    "location": "G4 Nozzle",
+    "model": "86-570",
+    "note": null,
+    "printed_at": "2026-07-13T07:28:28",
+    "reprints": 0
+  },
+  "LE017": {
+    "assigned_at": "2026-07-13T07:35:16",
+    "assigned_by": null,
+    "location": "G5 Nozzle",
+    "model": "86-570",
+    "note": null,
+    "printed_at": "2026-07-13T07:28:28",
+    "reprints": 0
+  },
+  "LE018": {
+    "assigned_at": "2026-07-13T07:35:51",
+    "assigned_by": null,
+    "location": "Tiles - Between G1 and G2/G3 Corridor",
+    "model": "89-410",
+    "note": null,
+    "printed_at": "2026-07-13T07:28:28",
+    "reprints": 0
+  },
+  "LE019": {
+    "assigned_at": "2026-07-13T07:36:11",
+    "assigned_by": null,
+    "location": "SM3 Inside 1",
+    "model": "89-410",
+    "note": null,
+    "printed_at": "2026-07-13T07:28:28",
+    "reprints": 0
+  },
+  "LE020": {
+    "assigned_at": "2026-07-13T07:36:23",
+    "assigned_by": null,
+    "location": "SM3 Overview",
+    "model": "89-410",
+    "note": null,
+    "printed_at": "2026-07-13T07:28:28",
+    "reprints": 0
+  },
+  "LE021": {
+    "assigned_at": "2026-07-13T07:36:56",
+    "assigned_by": null,
+    "location": "G4 and G5 Overview",
+    "model": "58-001",
+    "note": null,
+    "printed_at": "2026-07-13T07:28:28",
+    "reprints": 0
+  },
+  "LE022": {
+    "assigned_at": "2026-07-13T07:37:10",
+    "assigned_by": null,
+    "location": "Idle",
+    "model": "58-001",
+    "note": null,
+    "printed_at": "2026-07-13T07:28:28",
+    "reprints": 0
+  },
+  "LE023": {
+    "assigned_at": "2026-07-13T07:37:29",
+    "assigned_by": null,
+    "location": "Idle",
+    "model": "59-871",
+    "note": null,
+    "printed_at": "2026-07-13T07:28:28",
+    "reprints": 0
+  },
+  "LE024": {
+    "assigned_at": "2026-07-13T07:37:34",
+    "assigned_by": null,
+    "location": "Idle",
+    "model": "59-871",
+    "note": null,
+    "printed_at": "2026-07-13T07:28:28",
+    "reprints": 0
+  },
+  "LE025": {
+    "assigned_at": "2026-07-13T07:37:53",
+    "assigned_by": null,
+    "location": "SM3 QR Code",
+    "model": "59-872",
+    "note": null,
+    "printed_at": "2026-07-13T07:28:28",
+    "reprints": 0
+  },
+  "LE026": {
+    "assigned_at": "2026-07-13T07:39:14",
+    "assigned_by": "JOA",
+    "location": "G2 Pallet",
+    "model": "86-571",
+    "note": null,
+    "printed_at": "2026-07-13T07:28:28",
+    "reprints": 0
+  },
+  "LE027": {
+    "assigned_at": "2026-07-13T07:39:25",
+    "assigned_by": "JOA",
+    "location": "Idle",
+    "model": "86-571",
+    "note": null,
+    "printed_at": "2026-07-13T07:28:28",
+    "reprints": 0
+  },
+  "LE028": {
+    "assigned_at": "2026-07-13T07:39:41",
+    "assigned_by": "JOA",
+    "location": "Idle",
+    "model": "86-573",
+    "note": null,
+    "printed_at": "2026-07-13T07:28:28",
+    "reprints": 0
+  },
+  "LE029": {
+    "assigned_at": "2026-07-13T07:39:45",
+    "assigned_by": "JOA",
+    "location": "Idle",
+    "model": "86-573",
+    "note": null,
+    "printed_at": "2026-07-13T07:28:29",
+    "reprints": 0
+  },
+  "LE030": {
+    "assigned_at": "2026-07-13T07:40:20",
+    "assigned_by": "JOA",
+    "location": "G2 Overview",
+    "model": "33-303",
+    "note": null,
+    "printed_at": "2026-07-13T07:28:29",
+    "reprints": 0
+  },
+  "LE031": {
+    "assigned_at": "2026-07-13T07:40:55",
+    "assigned_by": "JOA",
+    "location": "Idle",
+    "model": "33-304",
+    "note": null,
+    "printed_at": "2026-07-13T07:28:29",
+    "reprints": 0
+  },
+  "LE032": {
+    "assigned_at": "2026-07-13T07:41:09",
+    "assigned_by": "JOA",
+    "location": "Idle",
+    "model": "33-305",
+    "note": null,
+    "printed_at": "2026-07-13T07:28:29",
+    "reprints": 0
+  },
+  "LE033": {
+    "assigned_at": "2026-07-13T07:41:17",
+    "assigned_by": "JOA",
+    "location": "Idle",
+    "model": "33-306",
+    "note": null,
+    "printed_at": "2026-07-13T07:28:29",
+    "reprints": 0
+  },
+  "LE034": {
+    "assigned_at": "2026-07-13T07:41:48",
+    "assigned_by": "JOA",
+    "location": "Idle",
+    "model": "59-870",
+    "note": null,
+    "printed_at": "2026-07-13T07:28:29",
+    "reprints": 0
+  },
+  "LE035": {
+    "assigned_at": "2026-07-13T07:41:59",
+    "assigned_by": "JOA",
+    "location": "Idle",
+    "model": "59-873",
+    "note": null,
+    "printed_at": "2026-07-13T07:28:29",
+    "reprints": 0
+  },
+  "LE036": {
+    "assigned_at": "2026-07-13T07:43:21",
+    "assigned_by": "JOA",
+    "location": "Idle",
+    "model": "86-569",
+    "note": null,
+    "printed_at": "2026-07-13T07:28:29",
+    "reprints": 0
+  },
+  "LE038": {
+    "assigned_at": "2026-07-13T07:44:41",
+    "assigned_by": "JOA",
+    "location": "Tiles - Leading to SM1",
+    "model": "86-900",
+    "note": null,
+    "printed_at": "2026-07-13T07:44:38",
+    "reprints": 0
+  }
+}

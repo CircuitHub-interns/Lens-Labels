@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(python lens_tracker.py relocate LE031-LE037 --to \"Idle\")",
+      "PowerShell(python lens_tracker.py relocate LE031-LE036 --to \"Idle\")"
+    ]
+  }
+}
