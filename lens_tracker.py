@@ -28,6 +28,8 @@ ground truth of what's physically installed.
 
 Usage:
   python lens_tracker.py list
+  python lens_tracker.py locations                      # known locations + how many lenses are there
+  python lens_tracker.py cameras                        # known camera models + how many lenses are on each
   python lens_tracker.py assign LE001 33-306 --by Jonathan --location "SM1 QR"
   python lens_tracker.py assign LE002 33-306 --location "SM3 QR" --note "replacement"
   python lens_tracker.py assign LE003 33-306 --location "SM3 QR" --attachment
@@ -352,6 +354,49 @@ def cmd_list(args: argparse.Namespace) -> int:
     return 0
 
 
+def _reference_rows(known: set[str], counts: dict[str, int]) -> list[tuple[str, str, str]]:
+    rows = []
+    for item in sorted(known | set(counts)):
+        tag = "" if item in known else "not in reference list"
+        rows.append((item, str(counts.get(item, 0)), tag))
+    return rows
+
+
+def _print_reference_table(header: tuple[str, str, str], rows: list[tuple[str, str, str]]) -> None:
+    if not rows:
+        print("(nothing to show)")
+        return
+    widths = [max(len(r[i]) for r in [header, *rows]) for i in range(len(header))]
+    for r in [header, *rows]:
+        print("  ".join(cell.ljust(w) for cell, w in zip(r, widths)).rstrip())
+
+
+def cmd_locations(args: argparse.Namespace) -> int:
+    reg = _warn_conflicts(load_registry())
+    counts: dict[str, int] = {}
+    for e in reg.values():
+        loc = e.get("location")
+        if loc:
+            counts[loc] = counts.get(loc, 0) + 1
+    rows = _reference_rows(KNOWN_LOCATIONS, counts)
+    _print_reference_table(("LOCATION", "IN USE", ""), rows)
+    print(f"\n{len(KNOWN_LOCATIONS)} known location(s).")
+    return 0
+
+
+def cmd_cameras(args: argparse.Namespace) -> int:
+    reg = _warn_conflicts(load_registry())
+    counts: dict[str, int] = {}
+    for e in reg.values():
+        model = e.get("model")
+        if model:
+            counts[model] = counts.get(model, 0) + 1
+    rows = _reference_rows(KNOWN_MODELS, counts)
+    _print_reference_table(("MODEL", "IN USE", ""), rows)
+    print(f"\n{len(KNOWN_MODELS)} known camera model(s).")
+    return 0
+
+
 def cmd_report(args: argparse.Namespace) -> int:
     reg = _warn_conflicts(load_registry())
     if not reg:
@@ -437,6 +482,16 @@ def main(argv: list[str] | None = None) -> int:
 
     p = sub.add_parser("list", help="status table of every printed lens")
     p.set_defaults(func=cmd_list)
+
+    p = sub.add_parser(
+        "locations", help="known locations, and how many lenses are at each"
+    )
+    p.set_defaults(func=cmd_locations)
+
+    p = sub.add_parser(
+        "cameras", help="known camera models, and how many lenses are on each"
+    )
+    p.set_defaults(func=cmd_cameras)
 
     p = sub.add_parser("report", help="print a supervisor-ready summary")
     p.add_argument(
