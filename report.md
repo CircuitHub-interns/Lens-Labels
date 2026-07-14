@@ -2,10 +2,10 @@
 
 | Lens | Model | Location | Assigned | By | Note | Attachment |
 |---|---|---|---|---|---|---|
-| LE001 | - |   |   |   |   | - |
-| LE002 | - |   |   |   |   | - |
-| LE003 | - |   |   |   |   | - |
-| LE004 | - |   |   |   |   | - |
+| LE001 | 86-572 | JP Internal | 2026-07-14 09:41 | Jonathan |   | - |
+| LE002 | 67-709 | JP TU | 2026-07-14 09:43 | Jonathan |   | - |
+| LE003 | 86-569 | AAOI Overview | 2026-07-14 09:46 | Jonathan |   | True |
+| LE004 | 67-709 | Oven TU | 2026-07-14 09:48 | Jonathan |   | - |
 | LE005 | - |   |   |   |   | - |
 | LE006 | - |   |   |   |   | - |
 | LE007 | - |   |   |   |   | - |
@@ -40,4 +40,4 @@
 | LE036 | - |   |   |   |   | - |
 | LE038 | - |   |   |   |   | - |
 
-**0 of 37** lenses installed.
+**4 of 37** lenses installed.
