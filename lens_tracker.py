@@ -35,6 +35,7 @@ Usage:
   python lens_tracker.py assign LE003 33-306 --location "SM3 QR" --attachment
   python lens_tracker.py assign LE004 33-306 --location "SM3 QR" --attachment 331456
   python lens_tracker.py relocate LE031-LE036 --to "Idle"   # mass location fix
+  python lens_tracker.py credit LE001-LE005 --by "Jonathan" # fix who, forgot at assign time
   python lens_tracker.py unassign LE001                # undo a mistake
   python lens_tracker.py unassign-all --yes             # clear every assignment for re-verification
   python lens_tracker.py report                        # copy-paste message + refreshes report.md
@@ -220,6 +221,40 @@ def _expand_codes(tokens: list[str]) -> list[str]:
     return codes
 
 
+def _validate_assigned_codes(
+    reg: dict, codes: list[str]
+) -> tuple[list[str], list[str], list[str]]:
+    """Split codes into (missing, conflicted, unassigned) — empty of all
+    three means every code is a valid, already-assigned entry."""
+    missing = [c for c in codes if c not in reg]
+    conflicted = [c for c in codes if c in reg and _is_conflicted(reg[c])]
+    unassigned = [
+        c for c in codes
+        if c in reg and not _is_conflicted(reg[c]) and not reg[c]["model"]
+    ]
+    return missing, conflicted, unassigned
+
+
+def _report_assigned_code_errors(
+    missing: list[str], conflicted: list[str], unassigned: list[str]
+) -> None:
+    if missing:
+        print(f"error: not in registry: {', '.join(missing)}", file=sys.stderr)
+    if conflicted:
+        print(
+            f"error: unresolved merge conflicts, fix by hand first: "
+            f"{', '.join(conflicted)}",
+            file=sys.stderr,
+        )
+    if unassigned:
+        print(
+            f"error: not assigned yet (use 'assign' instead): "
+            f"{', '.join(unassigned)}",
+            file=sys.stderr,
+        )
+    print("no changes made.", file=sys.stderr)
+
+
 def cmd_relocate(args: argparse.Namespace) -> int:
     reg = load_registry()
     try:
@@ -228,28 +263,9 @@ def cmd_relocate(args: argparse.Namespace) -> int:
         print(f"error: {err}", file=sys.stderr)
         return 1
 
-    missing = [c for c in codes if c not in reg]
-    conflicted = [c for c in codes if c in reg and _is_conflicted(reg[c])]
-    unassigned = [
-        c for c in codes
-        if c in reg and not _is_conflicted(reg[c]) and not reg[c]["model"]
-    ]
+    missing, conflicted, unassigned = _validate_assigned_codes(reg, codes)
     if missing or conflicted or unassigned:
-        if missing:
-            print(f"error: not in registry: {', '.join(missing)}", file=sys.stderr)
-        if conflicted:
-            print(
-                f"error: unresolved merge conflicts, fix by hand first: "
-                f"{', '.join(conflicted)}",
-                file=sys.stderr,
-            )
-        if unassigned:
-            print(
-                f"error: not assigned yet (use 'assign' instead): "
-                f"{', '.join(unassigned)}",
-                file=sys.stderr,
-            )
-        print("no changes made.", file=sys.stderr)
+        _report_assigned_code_errors(missing, conflicted, unassigned)
         return 1
 
     for code in codes:
@@ -258,6 +274,40 @@ def cmd_relocate(args: argparse.Namespace) -> int:
         print(f"{code}: {old} -> {args.to}")
     save_registry(reg)
     print(f"\n{len(codes)} lens(es) relocated.")
+    return 0
+
+
+def cmd_credit(args: argparse.Namespace) -> int:
+    """Fix who/note on already-assigned lenses without touching model/location."""
+    if args.by is None and args.note is None:
+        print("error: pass --by and/or --note — nothing to update.", file=sys.stderr)
+        return 1
+
+    reg = load_registry()
+    try:
+        codes = _expand_codes(args.codes)
+    except ValueError as err:
+        print(f"error: {err}", file=sys.stderr)
+        return 1
+
+    missing, conflicted, unassigned = _validate_assigned_codes(reg, codes)
+    if missing or conflicted or unassigned:
+        _report_assigned_code_errors(missing, conflicted, unassigned)
+        return 1
+
+    for code in codes:
+        changes = []
+        if args.by is not None:
+            old_by = reg[code].get("assigned_by") or "-"
+            reg[code]["assigned_by"] = args.by
+            changes.append(f"by: {old_by} -> {args.by}")
+        if args.note is not None:
+            old_note = reg[code].get("note") or "-"
+            reg[code]["note"] = args.note
+            changes.append(f"note: {old_note!r} -> {args.note!r}")
+        print(f"{code}: " + ", ".join(changes))
+    save_registry(reg)
+    print(f"\n{len(codes)} lens(es) updated.")
     return 0
 
 
@@ -468,6 +518,17 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--to", required=True, metavar="LOCATION",
                    help="new location, e.g. 'Idle'")
     p.set_defaults(func=cmd_relocate)
+
+    p = sub.add_parser(
+        "credit",
+        help="fix who assigned (and/or the note on) already-assigned lenses, "
+             "without touching model/location",
+    )
+    p.add_argument("codes", nargs="+", metavar="CODE",
+                   help="codes and/or ranges, e.g. LE001-LE005")
+    p.add_argument("--by", help="who actually assigned/installed these")
+    p.add_argument("--note", help="anything else worth recording")
+    p.set_defaults(func=cmd_credit)
 
     p = sub.add_parser("unassign", help="undo an assignment")
     p.add_argument("code")
