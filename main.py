@@ -33,6 +33,11 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--location", help="where the camera is, e.g. 'SM1 EE'")
     parser.add_argument("--by", help="who installed it")
     parser.add_argument("--note", help="anything else worth recording")
+    parser.add_argument(
+        "--attachment", nargs="?", const=True, default=False, metavar="ID",
+        help="omit entirely for no attachment; bare flag if one is present but "
+             "its ID is unknown; or give the ID, e.g. --attachment 331456",
+    )
     parser.add_argument("-o", "--out", default="labels",
                         help="output directory (default: labels)")
     args = parser.parse_args(argv)
@@ -63,6 +68,7 @@ def main(argv: list[str] | None = None) -> int:
             location=args.location,
             by=args.by,
             note=args.note,
+            attachment=args.attachment,
         ))
     return 0
 
